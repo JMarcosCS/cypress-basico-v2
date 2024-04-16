@@ -1,25 +1,25 @@
-// ***********************************************
-// This example commands.js shows you how to
-// create various custom commands and overwrite
-// existing commands.
-//
-// For more comprehensive examples of custom
-// commands please read more here:
-// https://on.cypress.io/custom-commands
-// ***********************************************
-//
-//
-// -- This is a parent command --
-// Cypress.Commands.add('login', (email, password) => { ... })
-//
-//
-// -- This is a child command --
-// Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })
-//
-//
-// -- This is a dual command --
-// Cypress.Commands.add('dismiss', { prevSubject: 'optional'}, (subject, options) => { ... })
-//
-//
-// -- This will overwrite an existing command --
-// Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+Cypress.Commands.add('fillMandatoryFieldsAndSubmit', function(){
+    cy.get('#firstName')
+        .type("João Marcos")
+        .should('have.value', 'João Marcos')
+        
+     cy.get('#lastName')
+        .type("Cirilo Saccani")
+        .should('have.value', 'Cirilo Saccani')
+        
+    cy.get('#email')
+        .type("joaomarcos44mu@gmail.com")
+        .should('have.value', 'joaomarcos44mu@gmail.com')
+
+    cy.get('#open-text-area')
+        .type("teste")
+        .should('have.value','teste')
+        
+    cy.get('#phone-checkbox').click() 
+            
+    cy.get('#phone')
+        .type("27995221414")
+        .should('have.value', '27995221414')
+        
+    cy.contains('button','Enviar').click()    
+})
