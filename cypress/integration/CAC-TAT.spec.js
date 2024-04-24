@@ -39,7 +39,7 @@ describe('Central de Atendimento ao Cliente TAT', function() {
     it('error quando telefone se torna obrigatório e não é preenchido', function(){
         cy.get('#firstName').type("João Marcos")
         cy.get('#lastName').type("Cirilo Saccani")
-        cy.get('#email').type("joaomarcos44mu@gmail,com")
+        cy.get('#email').type("joaomarcos00cs@gmail,com")
         cy.get('#phone-checkbox').check()
         cy.get('#open-text-area').type('teste')
         cy.contains('button', 'Enviar').click()
