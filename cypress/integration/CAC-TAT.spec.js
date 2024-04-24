@@ -153,4 +153,16 @@ describe('Central de Atendimento ao Cliente TAT', function() {
         expect($input[0].files[0].name).to.equal('example.json')
         })
     })
+
+    it("target _blank", function(){
+        cy.get('#privacy a').should('have.attr','target', '_blank')
+    })
+
+    it("target _blank", function(){
+        cy.get('#privacy a')
+        .invoke('removeAttr', 'target')
+        .click()
+
+        cy.get('#white-background > :nth-child(5)').should('be.visible')
+    })
 })    
